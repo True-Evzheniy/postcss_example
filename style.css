@@ -1,7 +1,7 @@
-$bg_color: WhiteSmoke;
+$bg_color  : WhiteSmoke;
 $item_color: tomato;
 
-$block_width: 200px;
+$block_width : 200px;
 $block_height: 150px;
 
 @import url(http://fonts.googleapis.com/css?family=Roboto);
@@ -14,6 +14,7 @@ body {
 
 img {
   width: inherit;
+  height: inherit;
 }
 
 .wrapper {
