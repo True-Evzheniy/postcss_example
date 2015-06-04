@@ -4,6 +4,7 @@
 
 ```
 git clone https://github.com/r3nya/postcss_example.git
+cd postcss_example
 npm i
 gulp
 gulp open
