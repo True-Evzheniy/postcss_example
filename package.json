@@ -1,0 +1,28 @@
+{
+  "name": "postcss_example",
+  "description": "Simple example of postcss",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:r3nya/postcss_example.git"
+  },
+  "keywords": [
+    "postcss",
+    "gulp"
+  ],
+  "author": "Andrey Makarov <me@r3nya.ru> (http://r3nya.ru/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r3nya/postcss_example/issues"
+  },
+  "homepage": "https://github.com/r3nya/postcss_example",
+  "dependencies": {
+    "autoprefixer-core": "^5.2.0",
+    "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jade": "^1.0.1",
+    "gulp-postcss": "^5.1.8",
+    "imagemin-jpegtran": "^4.1.0",
+    "postcss-simple-vars": "^0.3.0"
+  },
+  "devDependencies": {}
+}
