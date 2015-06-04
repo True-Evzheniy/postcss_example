@@ -22,6 +22,7 @@
     "gulp-jade": "^1.0.1",
     "gulp-postcss": "^5.1.8",
     "imagemin-jpegtran": "^4.1.0",
+    "postcss-nested": "^0.3.2",
     "postcss-simple-vars": "^0.3.0"
   },
   "devDependencies": {}

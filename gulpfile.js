@@ -2,6 +2,7 @@ var gulp         = require('gulp'),
     jade         = require('gulp-jade'),
     postcss      = require('gulp-postcss'),
     simpleVars   = require('postcss-simple-vars'),
+    nested       = require('postcss-nested'),
     autoprefixer = require('autoprefixer-core');
 
 var buildDir = './build/';
@@ -25,7 +26,8 @@ gulp.task('style', function () {
                 'Firefox ESR', 'Opera 12.1',
                 'ie 8', 'ie 9'
             ] }),
-            simpleVars()
+            simpleVars(),
+            nested()
         ]))
         .pipe(gulp.dest(buildDir));
 });

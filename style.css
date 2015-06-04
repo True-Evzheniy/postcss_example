@@ -34,12 +34,13 @@ img {
 
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+
+  .flex-item {
+    border: 1px solid $item_color;
+    padding: 1px;
+    width: $block_width;
+    height: $block_height;
+    margin-top: 1em;
+  }
 }
 
-.flex-item {
-  border: 1px solid $item_color;
-  padding: 1px;
-  width: $block_width;
-  height: $block_height;
-  margin-top: 1em;
-}

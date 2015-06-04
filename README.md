@@ -3,7 +3,7 @@
 ##Usage
 
 ```
-git clone repo
+git clone https://github.com/r3nya/postcss_example.git
 npm i
 gulp
 ```
