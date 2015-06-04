@@ -1,6 +1,7 @@
 var gulp         = require('gulp'),
     jade         = require('gulp-jade'),
     postcss      = require('gulp-postcss'),
+    open         = require('gulp-open'),
     simpleVars   = require('postcss-simple-vars'),
     nested       = require('postcss-nested'),
     autoprefixer = require('autoprefixer-core');
@@ -40,6 +41,11 @@ gulp.task('images', function () {
 gulp.task('watch', function () {
     gulp.watch('./*.jade', ['template']);
     gulp.watch('./*.css',  ['style']);
+});
+
+gulp.task('open', function () {
+    gulp.src(buildDir + './index.html')
+        .pipe(open('<%file.path%>'));
 });
 
 gulp.task('build',   ['template', 'style', 'images']);
