@@ -1,17 +1,13 @@
-var gulp         = require('gulp'),
-    jade         = require('gulp-jade'),
-    postcss      = require('gulp-postcss'),
-    open         = require('gulp-open'),
-    simpleVars   = require('postcss-simple-vars'),
-    nested       = require('postcss-nested'),
-    autoprefixer = require('autoprefixer-core');
+import gulp from 'gulp';
 
 var buildDir = './build/';
 
 
 // tasks
 
-gulp.task('template', function () {
+gulp.task('template', () => {
+    let jade = require('gulp-jade');
+
     gulp.src('./*.jade')
         .pipe(jade({
             locals: {}
@@ -19,7 +15,12 @@ gulp.task('template', function () {
         .pipe(gulp.dest(buildDir));
 });
 
-gulp.task('style', function () {
+gulp.task('style', () => {
+    let postcss      = require('gulp-postcss'),
+        simpleVars   = require('postcss-simple-vars'),
+        nested       = require('postcss-nested'),
+        autoprefixer = require('autoprefixer-core');
+
     gulp.src('./style.css')
         .pipe(postcss([
             autoprefixer({ browser: [
@@ -33,17 +34,19 @@ gulp.task('style', function () {
         .pipe(gulp.dest(buildDir));
 });
 
-gulp.task('images', function () {
+gulp.task('images', () => {
     gulp.src('./images/*.jpg')
         .pipe(gulp.dest(buildDir + '/img/'));
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
     gulp.watch('./*.jade', ['template']);
     gulp.watch('./*.css',  ['style']);
 });
 
-gulp.task('open', function () {
+gulp.task('open', () => {
+    let open = require('gulp-open');
+
     gulp.src(buildDir + './index.html')
         .pipe(open('<%file.path%>'));
 });
