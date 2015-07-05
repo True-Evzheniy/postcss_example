@@ -17,11 +17,11 @@ img {
   height: inherit;
 }
 
-.wrapper {
+main {
   text-align: center;
 }
 
-.flex-container {
+.gallery {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -35,7 +35,7 @@ img {
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
 
-  .flex-item {
+  &__item {
     border: 1px solid $item_color;
     padding: 1px;
     width: $block_width;
