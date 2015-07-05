@@ -8,9 +8,9 @@ var buildDir = './build/';
 gulp.task('template', () => {
     let jade = require('gulp-jade');
 
-    gulp.src('./*.jade')
+    gulp.src('template/pages/index.jade')
         .pipe(jade({
-            locals: {}
+            pretty: true
         }))
         .pipe(gulp.dest(buildDir));
 });

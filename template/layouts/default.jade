@@ -1,0 +1,14 @@
+include ../helpers/mixins
+include ../helpers/variables
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        title Hello!
+        meta(name='description', content='Simple example of postcss')
+        link(href='style.css', rel='stylesheet')
+    body
+        .wrapper
+            block header
+            block content
