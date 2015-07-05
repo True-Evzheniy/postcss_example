@@ -4,6 +4,7 @@ var config = {};
 
 config.template = 'app/template/pages/index.jade';
 config.style    = 'app/style/common.css';
+config.images   = 'app/images/*.jpg';
 config.buildDir = 'build/';
 
 // tasks
@@ -42,7 +43,7 @@ gulp.task('style', () => {
 });
 
 gulp.task('images', () => {
-    gulp.src('./images/*.jpg')
+    gulp.src(config.images)
         .pipe(gulp.dest(config.buildDir + '/img/'));
 });
 
