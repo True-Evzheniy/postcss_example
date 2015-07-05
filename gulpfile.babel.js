@@ -1,42 +1,49 @@
 import gulp from 'gulp';
 
-var buildDir = './build/';
+var config = {};
 
+config.template = 'app/template/pages/index.jade';
+config.style    = 'app/style/common.css';
+config.buildDir = 'build/';
 
 // tasks
 
 gulp.task('template', () => {
     let jade = require('gulp-jade');
 
-    gulp.src('template/pages/index.jade')
+    gulp.src(config.template)
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest(buildDir));
+        .pipe(gulp.dest(config.buildDir));
 });
 
 gulp.task('style', () => {
+    let vars = require('./app/style/variables.js');
+
     let postcss      = require('gulp-postcss'),
         simpleVars   = require('postcss-simple-vars'),
         nested       = require('postcss-nested'),
         autoprefixer = require('autoprefixer-core');
 
-    gulp.src('./style.css')
-        .pipe(postcss([
-            autoprefixer({ browser: [
-                '> 1%', 'last 2 versions',
-                'Firefox ESR', 'Opera 12.1',
-                'ie 8', 'ie 9'
-            ] }),
-            simpleVars(),
-            nested()
-        ]))
-        .pipe(gulp.dest(buildDir));
+    let postProcessors = [
+        autoprefixer({ browser: [
+            '> 1%', 'last 2 versions',
+            'Firefox ESR', 'Opera 12.1',
+            'ie 8', 'ie 9'
+        ] }),
+        simpleVars({ variables: vars }),
+        nested()
+    ];
+
+    gulp.src(config.style)
+        .pipe(postcss(postProcessors))
+        .pipe(gulp.dest(config.buildDir));
 });
 
 gulp.task('images', () => {
     gulp.src('./images/*.jpg')
-        .pipe(gulp.dest(buildDir + '/img/'));
+        .pipe(gulp.dest(config.buildDir + '/img/'));
 });
 
 gulp.task('watch', () => {
@@ -47,7 +54,7 @@ gulp.task('watch', () => {
 gulp.task('open', () => {
     let open = require('gulp-open');
 
-    gulp.src(buildDir + './index.html')
+    gulp.src(config.buildDir + './index.html')
         .pipe(open('<%file.path%>'));
 });
 
